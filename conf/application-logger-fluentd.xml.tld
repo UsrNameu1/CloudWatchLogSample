@@ -1,0 +1,12 @@
+<!-- logger conf for fluentd -->
+<configuration>
+    <appender name="FLUENT" class="eu.inn.fluentd.FluentdAppender">
+        <tag>my.project</tag>
+        <remoteHost>localhost</remoteHost>
+        <port>24224</port>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="FLUENT"/>
+    </root>
+</configuration>
