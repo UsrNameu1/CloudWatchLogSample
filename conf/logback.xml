@@ -3,15 +3,22 @@
   <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" />
 
   <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>/home/ec2-user/api/application.log</file>
+    <file>/home/ec2-user/logs/application.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>/home/ec2-user/logs/application%i.log</fileNamePattern>
+      <minIndex>1</minIndex>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <maxFileSize>50000</maxFileSize>
+    </triggeringPolicy>
     <encoder>
-      <pattern>%date [%level] from %logger in %thread - %message%n%xException</pattern>
+      <pattern>%date{yyyy-MM-dd HH:mm:ss} [%level] from %logger in %thread - %message %xException</pattern>
     </encoder>
   </appender>
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%coloredLevel - %logger - %message%n%xException</pattern>
+      <pattern>%coloredLevel - %logger - %message %xException</pattern>
     </encoder>
   </appender>
 
