@@ -7,6 +7,7 @@
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
       <fileNamePattern>/home/ec2-user/logs/application%i.log</fileNamePattern>
       <minIndex>1</minIndex>
+      <maxIndex>20</maxIndex>
     </rollingPolicy>
     <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
       <maxFileSize>50000</maxFileSize>
