@@ -13,13 +13,13 @@
       <maxFileSize>50000</maxFileSize>
     </triggeringPolicy>
     <encoder>
-      <pattern>%date{yyyy-MM-dd HH:mm:ss} [%level] from %logger in %thread - %message %xException</pattern>
+      <pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%level] from %logger in %thread - %message %exception</pattern>
     </encoder>
   </appender>
 
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
-      <pattern>%coloredLevel - %logger - %message %xException</pattern>
+      <pattern>%coloredLevel - %logger - %message %exception</pattern>
     </encoder>
   </appender>
 
