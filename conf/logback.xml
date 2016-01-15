@@ -42,26 +42,6 @@
     </filter>
   </appender>
 
-  <appender name="FILE_DEBUG" class="ch.qos.logback.core.FileAppender">
-    <file>/home/ec2-user/logs/application.log</file>
-    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <fileNamePattern>/home/ec2-user/logs/application%i.log</fileNamePattern>
-      <minIndex>1</minIndex>
-      <maxIndex>20</maxIndex>
-    </rollingPolicy>
-    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-      <maxFileSize>50000</maxFileSize>
-    </triggeringPolicy>
-    <encoder>
-      <pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%level] from %logger in %thread - %replace(%message){`\n`, ` `} %n</pattern>
-    </encoder>
-    <filter class="ch.qos.logback.classic.filter.LevelFilter">
-      <level>DEBUG</level>
-      <onMatch>ACCEPT</onMatch>
-      <onMismatch>DENY</onMismatch>
-    </filter>
-  </appender>
-
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
       <pattern>%coloredLevel - %logger - %message %exception</pattern>
@@ -78,7 +58,6 @@
   <root level="WARN">
     <appender-ref ref="FILE_ERROR" />
     <appender-ref ref="FILE_INFO" />
-    <appender-ref ref="FILE_DEBUG" />
     <appender-ref ref="STDOUT" />
   </root>
 
